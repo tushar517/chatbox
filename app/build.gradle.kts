@@ -62,7 +62,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.ktor.client.android)
-    implementation(libs.ktor.client.websockets)
     implementation(libs.ktor.client.okhttp)
     implementation(libs.ktor.client.logging)
     implementation(libs.kotlinx.serialization.json)
@@ -75,6 +74,5 @@ dependencies {
     implementation(libs.androidx.view.model.compose)
     implementation(libs.hilt.navigation.compose)
     implementation(libs.stompprotocolandroid)
-    implementation ("io.reactivex.rxjava2:rxjava:2.2.8")
-    implementation("org.hildan.krossbow:krossbow-websocket-ktor:7.0.0")
+    implementation (libs.rxjava)
 }
