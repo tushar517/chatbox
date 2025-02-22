@@ -4,6 +4,7 @@ import com.example.chatbox.data.model.AllUserResponse
 import com.example.chatbox.data.model.ApiResult
 import com.example.chatbox.data.model.LoginRequest
 import com.example.chatbox.data.model.LoginResponse
+import com.example.chatbox.data.model.SignUpRequest
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.request.post
@@ -26,10 +27,17 @@ class Repository(
         return apiCall {
             httpClient.get {
                 url("users")
-
             }
         }
     }
 
+    override suspend fun signUpUser(request: SignUpRequest): ApiResult<LoginResponse> {
+        return apiCall {
+            httpClient.post {
+                url("auth/user/createUser")
+                setBody(request)
+            }
+        }
+    }
 
 }

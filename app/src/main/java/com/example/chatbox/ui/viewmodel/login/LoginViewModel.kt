@@ -30,6 +30,11 @@ class LoginViewModel @Inject constructor(
                     val result = repository.callLoginApi(request)
                     if (result is ApiResult.Success){
                         dataStoreHelper.setData(PreferenceKey.authToken,result.data.response.token)
+                        dataStoreHelper.setData(PreferenceKey.fullName,result.data.response.userDetail.fullName)
+                        dataStoreHelper.setData(PreferenceKey.userName,result.data.response.userDetail.userName)
+                        dataStoreHelper.setData(PreferenceKey.gender,result.data.response.userDetail.gender)
+                        dataStoreHelper.setData(PreferenceKey.profileImg,result.data.response.userDetail.profileImg)
+                        dataStoreHelper.setData(PreferenceKey.isLogIn,true)
                     }
                     _stateFlow.value = _stateFlow.value.copy(isLoading = false, loginApiResult = result)
                 }

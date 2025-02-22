@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.hilt)
     kotlin("plugin.serialization")
     id("kotlin-parcelize")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -75,4 +76,6 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
     implementation(libs.stompprotocolandroid)
     implementation (libs.rxjava)
+    implementation(platform("io.github.jan-tennert.supabase:bom:3.1.1"))
+    implementation("io.github.jan-tennert.supabase:storage-kt:3.1.1")
 }

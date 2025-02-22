@@ -5,6 +5,7 @@ import com.example.chatbox.data.local.datastore.DataStoreHelper
 import com.example.chatbox.data.local.datastore.PreferenceKey
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
+import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.plugins.logging.LogLevel
@@ -25,6 +26,10 @@ import kotlinx.serialization.json.Json
 class KtorClient(private val dataStoreHelper: DataStoreHelper) {
     val httpClient: HttpClient =
         HttpClient(OkHttp) {
+            install(HttpTimeout){
+                socketTimeoutMillis = 180000
+                connectTimeoutMillis = 120000
+            }
             install(ContentNegotiation) {
                 json(Json {
                     prettyPrint = true
@@ -45,11 +50,12 @@ class KtorClient(private val dataStoreHelper: DataStoreHelper) {
 
             defaultRequest {
 //                url.host = "10.0.2.2:8088"
-                url.host = "192.168.1.2:8088"
+                url.host = "192.168.1.3:8088"
                 url.protocol = URLProtocol.HTTP
                 headers
                     .append("Authorization", "Bearer ${getAuthToken()}")
                 headers.append("Content-Type", "application/json")
+
             }
         }
 

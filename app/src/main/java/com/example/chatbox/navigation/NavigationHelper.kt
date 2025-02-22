@@ -18,3 +18,8 @@ object Login
 @Serializable
 object Landing
 
+@Serializable
+object SignUp
+
+@Serializable
+object AuthRoute

@@ -1,5 +1,8 @@
 package com.example.chatbox.ui.theme
 
+import android.graphics.LinearGradient
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
 val Purple80 = Color(0xFFD0BCFF)
@@ -16,3 +19,10 @@ val grey_10 = Color(0xffCDD1D0)
 val PurpleBg = Color(0xFF4A3F69)
 val White = Color(0xFFFFFFFF)
 val Transparent = Color(0x00000000)
+
+val nextButtonBg = Brush.linearGradient(
+    colors = listOf(Color(0xFFF97794),Color(0xFF623AA2))
+)
+val disableNextButtonBg = Brush.linearGradient(
+    colors = listOf(grey_10,grey_7B)
+)
