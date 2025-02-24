@@ -214,8 +214,6 @@ fun SignUpScreen(
                                     .clip(CircleShape)
                                     .border(2.dp, Color.Gray, CircleShape) ,
                                 contentScale = ContentScale.Crop,
-
-
                                 )
                         }
                     } else {

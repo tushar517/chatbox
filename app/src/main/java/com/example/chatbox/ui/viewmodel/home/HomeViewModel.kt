@@ -40,16 +40,6 @@ class HomeViewModel @Inject constructor(
                     repository.getAllUsers()
                 }
             }
-            is HomeEvent.SendMessage->{
-                val compositeDisposable = CompositeDisposable()
-                val send =stomp.send("/user/connectedUser", Json.encodeToString(UserModel()))
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(Schedulers.io())
-                    .subscribe({
-
-                },{ Log.e("SendSocketError",it.localizedMessage?:"")})
-                compositeDisposable.add(send)
-            }
             is HomeEvent.SubscribeToSocket->{
                 val compositeDisposable = CompositeDisposable()
 

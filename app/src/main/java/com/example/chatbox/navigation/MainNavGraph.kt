@@ -51,11 +51,8 @@ fun MainNavGraph(mainNavController: NavHostController){
             }
         }
         composable<Home> {
-            val homeViewModel = hiltViewModel<HomeViewModel>()
             HomeScreen(
                 mainNavHostController = mainNavController,
-                onEvent = homeViewModel::onEvent,
-                state = homeViewModel.stateFlow.collectAsState().value
             )
         }
     }

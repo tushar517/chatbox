@@ -12,7 +12,7 @@ class StompWebSocketClient(private val dataStoreHelper: DataStoreHelper) {
     fun stompClient(): StompClient {
         val stomp = Stomp.over(
             Stomp.ConnectionProvider.OKHTTP,
-            "ws://192.168.1.2:8088/ws/websocket",
+            "ws://192.168.1.6:8088/ws/websocket",
             mapOf(
                 "Authorization" to "Bearer ${getAuthToken()}"
             )

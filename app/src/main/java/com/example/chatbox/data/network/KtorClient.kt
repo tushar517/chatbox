@@ -50,7 +50,7 @@ class KtorClient(private val dataStoreHelper: DataStoreHelper) {
 
             defaultRequest {
 //                url.host = "10.0.2.2:8088"
-                url.host = "192.168.1.3:8088"
+                url.host = "192.168.1.6:8088"
                 url.protocol = URLProtocol.HTTP
                 headers
                     .append("Authorization", "Bearer ${getAuthToken()}")

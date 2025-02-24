@@ -1,7 +1,10 @@
 package com.example.chatbox.data.network
 
+import com.example.chatbox.data.model.AllChatReponse
 import com.example.chatbox.data.model.AllUserResponse
 import com.example.chatbox.data.model.ApiResult
+import com.example.chatbox.data.model.ChatRoomIdRequest
+import com.example.chatbox.data.model.ChatRoomResponse
 import com.example.chatbox.data.model.LoginRequest
 import com.example.chatbox.data.model.LoginResponse
 import com.example.chatbox.data.model.SignUpRequest
@@ -36,6 +39,23 @@ class Repository(
             httpClient.post {
                 url("auth/user/createUser")
                 setBody(request)
+            }
+        }
+    }
+
+    override suspend fun getChatRoomId(request: ChatRoomIdRequest): ApiResult<ChatRoomResponse> {
+        return apiCall {
+            httpClient.post {
+                url("/chatRoom/getRoomId")
+                setBody(request)
+            }
+        }
+    }
+
+    override suspend fun getAllChat(chatRoomId: String): ApiResult<AllChatReponse> {
+        return apiCall {
+            httpClient.get {
+                url("/messages/$chatRoomId")
             }
         }
     }

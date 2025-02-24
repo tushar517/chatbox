@@ -1,6 +1,7 @@
 package com.example.chatbox.navigation
 
 import android.os.Parcelable
+import com.example.chatbox.data.model.AllUser
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Serializable
 
@@ -13,13 +14,32 @@ data object Home
 data class UserDetail(val userName:String,val password:String):Parcelable
 
 @Serializable
-object Login
+data object Login
 
 @Serializable
-object Landing
+data object Landing
 
 @Serializable
-object SignUp
+data object SignUp
 
 @Serializable
-object AuthRoute
+data object AuthRoute
+
+@Serializable
+data object User
+
+@Serializable
+data class Chat(val fullName: String,
+                val gender: String,
+                val lastSeen: String,
+                val userName: String,
+                val profileImg:String)
+
+@Serializable
+data object Profile
+
+@Serializable
+data object Setting
+
+@Serializable
+data object EditDetail

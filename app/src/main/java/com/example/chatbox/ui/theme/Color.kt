@@ -19,7 +19,8 @@ val grey_10 = Color(0xffCDD1D0)
 val PurpleBg = Color(0xFF4A3F69)
 val White = Color(0xFFFFFFFF)
 val Transparent = Color(0x00000000)
-
+val sentChatBg = Color(0xFFEBEAEA)
+val receiveChatBg = Color(0xFF9747FF)
 val nextButtonBg = Brush.linearGradient(
     colors = listOf(Color(0xFFF97794),Color(0xFF623AA2))
 )
