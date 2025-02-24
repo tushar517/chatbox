@@ -22,6 +22,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import coil3.compose.AsyncImage
 import com.example.chatbox.R
+import com.example.chatbox.navigation.EditDetail
+import com.example.chatbox.ui.components.CustomButton
 import com.example.chatbox.ui.theme.PurpleBg
 import com.example.chatbox.ui.theme.White
 import com.example.chatbox.ui.theme.grey_7B
@@ -74,7 +76,9 @@ fun ProfileScreen(
                     color = grey_7B,
                     shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp)
                 )
-                .padding(top = 20.dp)
+                .padding(top = 20.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
         ) {
             Text(
                 state.userName,
@@ -89,6 +93,14 @@ fun ProfileScreen(
                     color = Color.Black
                 ),
                 modifier = Modifier.padding(top = 20.dp)
+            )
+            CustomButton(
+                modifier = Modifier.padding(20.dp),
+                text = "Edit Profile",
+                isEnable = true,
+                onClick = {
+                    navHostController.navigate(EditDetail)
+                }
             )
         }
 
